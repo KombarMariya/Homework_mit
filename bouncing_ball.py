@@ -25,6 +25,13 @@ class Ball:
             self.x = 3
         if pos[2] >= self.canvas_width:
             self.x = -3
+class Paddle:
+    def __init__(self, canvas, color): # рисование ракетки
+        self.canvas = canvas
+        self.id = canvas.create_rectangle(0, 0, 100, 10, fill=color)
+        self.canvas.move(self.id, 200, 300)
+    def draw(self):
+        pass
 
 tk = Tk()
 tk.title("Игра") # заголовок игрового окна
@@ -33,11 +40,12 @@ tk.wm_attributes("-topmost", 1) # поверх остальных окон
 canvas = Canvas(tk, width=500, height=400, bd=0, highlightthickness=0)
 canvas.pack()
 tk.update()
-
-ball = Ball(canvas, 'red') # объект класса
+paddle = Paddle(canvas, 'blue') # объект класса Paddle
+ball = Ball(canvas, 'red') # объект класса Ball
 
 while 1:
     ball.draw() # вызов функции объекта-мяча
+    paddle.draw() # вызов функции объекта-ракетки
     tk.update_idletasks()
     tk.update()
     time.sleep(0.01) # приостановление выполнения кода
