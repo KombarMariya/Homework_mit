@@ -14,6 +14,7 @@ class Ball:
         self.y = -3
         self.canvas_height = self.canvas.winfo_height()
         self.canvas_width = self.canvas.winfo_width()
+        self.hit_bottom = False
 
     def draw(self): # перемещение мяча
         self.canvas.move(self.id, self.x, self.y)
@@ -21,7 +22,7 @@ class Ball:
         if pos[1] <= 0:
             self.y = 3
         if pos[3] >= self.canvas_height:
-            self.y = -3
+            self.hit_bottom = True
         if self.hit_paddle(pos) == True:
             self.y = -3
         if pos[0] <= 0:
@@ -70,8 +71,9 @@ paddle = Paddle(canvas, 'blue') # объект класса Paddle
 ball = Ball(canvas, paddle, 'red') # объект класса Ball
 
 while 1:
-    ball.draw() # вызов функции объекта-мяча
-    paddle.draw() # вызов функции объекта-ракетки
+    if ball.hit_bottom == False:
+        ball.draw() # вызов функции объекта-мяча
+        paddle.draw() # вызов функции объекта-ракетки
     tk.update_idletasks()
     tk.update()
     time.sleep(0.01) # приостановление выполнения кода
