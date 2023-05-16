@@ -15,8 +15,14 @@ def game_step(index, char): # функция хода игрока
     board[index - 1] = char
     return True
 
-def check_win():
-    return False
+def check_win(): # проверка победы одного из игроков
+    win = False
+    win_combination = (
+        (0,1,2), (3,4,5), (6,7,8), # горизонтальные линии
+        (0,3,6), (1,4,7), (2,5,8), # вертикальные линии
+        (0,4,8), (2,4,6)           # диагональные линии
+    )
+    return win
 
 def start_game():
     current_player = "X" # текущий игрок
