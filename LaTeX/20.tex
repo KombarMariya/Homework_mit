@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage[12pt]{extsizes}
+\usepackage{fancyvrb}
+\usepackage{indentfirst}
+\usepackage[
+  left=2cm, right=2cm, top=2cm, bottom=2cm, headsep=0.2cm, footskip=0.6cm, bindingoffset=0cm
+]{geometry}
+\usepackage[english,russian]{babel}
+
+
+\begin{document}
+\section*{Вариант 20}
+Модель, позволяющая получить разгонные и переходные характеристики компрессора, то есть кривые изменения во времени основных параметров "--- плотности и температуры газа при нагнетании каждой ступени компрессора в период нагрузки и после внесения внешнего возмущающего воздействия:
+
+\begin{equation}
+   \frac{V_{x_1} + 0.85 {V_{\text{\cyr{\textit{Н}}}1}}}{V_{\text{\cyr{П}}2} n} \frac{d}{dt} \rho_1(t) + \lambda_2 \rho_1(t) = \lambda_1 \frac{V_{\text{\cyr{П}}1}}{V_{\text{\cyr{П}}2}} \rho_0,
+\end{equation}
+
+\begin{equation}
+   \frac{V_{x_2} + 0.85 {V_{\text{\cyr{\textit{Н}}}2}}}{V_{\text{\cyr{П}}3} n} \frac{d}{dt} \rho_2(t) + \lambda_3 \rho_2(t) = \lambda_2 \frac{V_{\text{\cyr{П}}2}}{V_{\text{\cyr{П}}3}} \rho_1,
+\end{equation}
+
+\begin{equation}
+   0.85 {V_{\text{\cyr{\textit{Н}}}3}} \frac{d}{dt} \rho_3(t) = \lambda_3 V_{\text{\cyr{П}}3} n \rho_2(t) - 
+   \begin{cases}
+      0, &  \rho_3(t) < \rho_c, \\  
+      \lambda_3 V_{\text{\cyr{П}}3} n \rho_2(t), & \rho_3(t) \ge \rho_c,
+    \end{cases}
+\end{equation}
+
+где $V_{\text{\cyr{П}}1}$, $V_{\text{\cyr{П}}2}$, $V_{\text{\cyr{П}}3}$ "--- объемы, описываемые поршнями цилиндров; $V_{\text{\cyr{\textit{Н}}}1}$, $V_{\text{\cyr{\textit{Н}}}2}$, $V_{\text{\cyr{\textit{Н}}}3}$ "--- объемы газовых полостей аппаратуры на нагнетании; $V_{x1}$, $V_{x2}$, $V_{x3}$ "--- объемы газовых полостей аппаратуры после газоохладителей; $\lambda_1$, $\lambda_2$, $\lambda_3$ "--- коэффициенты наполнения цилиндров; $n$ "--- частота вращения вала компрессора; $\rho_c$ "--- плотность газа в сети; $\rho_1$, $\rho_2$, $\rho_3$ "--- искомые плотности газа при нагнетании по ступеням.
+
+\end{document}
+
